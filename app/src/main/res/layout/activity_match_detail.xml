@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.match.detail.MatchDetailActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+            app:titleEnabled="false">
+
+            <RelativeLayout
+                android:id="@+id/headerContent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:layout_centerInParent="true"
+                android:fitsSystemWindows="true"
+                app:layout_collapseMode="parallax">
+
+                <TextView
+                    android:id="@+id/date_match"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@+id/badge_home"
+                    android:layout_marginBottom="@dimen/layout_margin_16dp"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/badge_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_toLeftOf="@+id/score"
+                    android:layout_toStartOf="@+id/score"
+                    android:layout_marginLeft="@dimen/layout_margin_16dp"
+                    android:layout_marginStart="@dimen/layout_margin_16dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_badge"
+                    android:contentDescription="@string/badge_home" />
+
+                <TextView
+                    android:id="@+id/home_team"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/badge_home"
+                    android:layout_alignRight="@+id/badge_home"
+                    android:layout_below="@+id/badge_home"
+                    android:layout_marginLeft="@dimen/layout_margin_16dp"
+                    android:layout_marginStart="@dimen/layout_margin_16dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text="@string/team_a"
+                    android:textColor="@color/colorBackground"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:id="@+id/score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/_0_0"
+                    android:textColor="@color/colorCardBackground"
+                    android:textSize="34sp" />
+
+                <ImageView
+                    android:id="@+id/badge_away"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_toEndOf="@+id/score"
+                    android:layout_toRightOf="@+id/score"
+                    android:layout_marginRight="@dimen/layout_margin_16dp"
+                    android:layout_marginEnd="@dimen/layout_margin_16dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_badge"
+                    android:contentDescription="@string/badge_away" />
+
+                <TextView
+                    android:id="@+id/away_team"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignStart="@+id/badge_away"
+                    android:layout_below="@+id/badge_home"
+                    android:text="@string/team_b"
+                    android:textColor="@color/colorBackground"
+                    android:textSize="17sp"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="@dimen/layout_margin_16dp"
+                    android:layout_marginEnd="@dimen/layout_margin_16dp"
+                    android:layout_alignLeft="@+id/badge_away" />
+
+            </RelativeLayout>
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:contentInsetLeft="0dp"
+                app:contentInsetStart="0dp"
+                app:layout_collapseMode="pin"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nested_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:background="@color/colorBackground"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_marginLeft="@dimen/card_margin_y"
+                android:layout_marginRight="@dimen/card_margin_y"
+                android:layout_marginTop="@dimen/card_margin_x"
+                app:cardElevation="0.5dp"
+                app:cardCornerRadius="7dp"
+                app:cardBackgroundColor="@color/colorCardBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/layout_margin_16dp"
+                    android:layout_marginTop="@dimen/layout_margin_16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/layout_margin_16dp"
+                        android:layout_marginRight="@dimen/layout_margin_16dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/card_margin_x">
+
+                        <TextView
+                            android:id="@+id/home_goals"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start|top"
+                            android:text="@string/team_a"
+                            android:textColor="@color/colorTextLight"
+                            android:textSize="15sp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:text="@string/goals"
+                            android:textColor="@color/colorTextExtraLight"
+                            android:gravity="center|top"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/away_goals"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end|top"
+                            android:text="@string/team_b"
+                            android:textColor="@color/colorTextLight"
+                            android:textSize="15sp"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/layout_margin_16dp"
+                        android:layout_marginRight="@dimen/layout_margin_16dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/card_margin_x">
+
+                        <TextView
+                            android:id="@+id/home_shots"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start|top"
+                            android:text="@string/team_a"
+                            android:textColor="@color/colorTextLight"
+                            android:textSize="15sp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:text="@string/shots"
+                            android:textColor="@color/colorTextExtraLight"
+                            android:gravity="center|top"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/away_shots"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end|top"
+                            android:text="@string/team_b"
+                            android:textColor="@color/colorTextLight"
+                            android:textSize="15sp"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/score_layout"
+                android:background="@drawable/layout_rounded_white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/layout_margin_16dp"
+                android:layout_marginRight="@dimen/layout_margin_16dp"
+                android:layout_marginBottom="@dimen/layout_margin_16dp"
+                android:layout_marginTop="@dimen/layout_margin_16dp"
+                android:layout_gravity="center_horizontal"
+                android:padding="5dp">
+                <TextView
+                    android:textSize="15sp"
+                    android:textColor="@color/colorAccent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lineups"
+                    android:layout_marginLeft="@dimen/layout_margin_16dp"
+                    android:layout_marginRight="@dimen/layout_margin_16dp" />
+            </LinearLayout>
+
+            <android.support.v7.widget.CardView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_marginLeft="@dimen/card_margin_y"
+                android:layout_marginRight="@dimen/card_margin_y"
+                android:layout_marginBottom="@dimen/layout_margin_16dp"
+                app:cardElevation="0.5dp"
+                app:cardCornerRadius="7dp"
+                app:cardBackgroundColor="@color/colorCardBackground"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/layout_margin_16dp"
+                    android:layout_marginTop="@dimen/layout_margin_16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/layout_margin_16dp"
+                        android:layout_marginRight="@dimen/layout_margin_16dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/card_margin_x">
+
+                        <TextView
+                            android:id="@+id/home_goalskeeper"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start|top"
+                            android:text="@string/team_a"
+                            android:textColor="@color/colorTextLight"
+                            android:textSize="15sp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:text="@string/goalskeeper"
+                            android:textColor="@color/colorTextExtraLight"
+                            android:gravity="center|top"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/away_goalskeeper"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end|top"
+                            android:text="@string/team_b"
+                            android:textColor="@color/colorTextLight"
+                            android:textSize="15sp"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/layout_margin_16dp"
+                        android:layout_marginRight="@dimen/layout_margin_16dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/card_margin_x">
+
+                        <TextView
+                            android:id="@+id/home_defense"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start|top"
+                            android:text="@string/team_a"
+                            android:textColor="@color/colorTextLight"
+                            android:textSize="15sp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:text="@string/defense"
+                            android:textColor="@color/colorTextExtraLight"
+                            android:gravity="center|top"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/away_defense"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end|top"
+                            android:text="@string/team_b"
+                            android:textColor="@color/colorTextLight"
+                            android:textSize="15sp"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/layout_margin_16dp"
+                        android:layout_marginRight="@dimen/layout_margin_16dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/card_margin_x">
+
+                        <TextView
+                            android:id="@+id/home_midfield"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start|top"
+                            android:text="@string/team_a"
+                            android:textColor="@color/colorTextLight"
+                            android:textSize="15sp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:text="@string/midfield"
+                            android:textColor="@color/colorTextExtraLight"
+                            android:gravity="center|top"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/away_midfield"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end|top"
+                            android:text="@string/team_b"
+                            android:textColor="@color/colorTextLight"
+                            android:textSize="15sp"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/layout_margin_16dp"
+                        android:layout_marginRight="@dimen/layout_margin_16dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/card_margin_x">
+
+                        <TextView
+                            android:id="@+id/home_forward"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start|top"
+                            android:text="@string/team_a"
+                            android:textColor="@color/colorTextLight"
+                            android:textSize="15sp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:text="@string/forward"
+                            android:textColor="@color/colorTextExtraLight"
+                            android:gravity="center|top"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/away_forward"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end|top"
+                            android:text="@string/team_b"
+                            android:textColor="@color/colorTextLight"
+                            android:textSize="15sp"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/layout_margin_16dp"
+                        android:layout_marginRight="@dimen/layout_margin_16dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/card_margin_x">
+
+                        <TextView
+                            android:id="@+id/home_substitutes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="start|top"
+                            android:text="@string/team_a"
+                            android:textColor="@color/colorTextLight"
+                            android:textSize="15sp"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:text="@string/substitutes"
+                            android:textColor="@color/colorTextExtraLight"
+                            android:gravity="center|top"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+
+                        <TextView
+                            android:id="@+id/away_substitutes"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="end|top"
+                            android:text="@string/team_b"
+                            android:textColor="@color/colorTextLight"
+                            android:textSize="15sp"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <ProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_marginTop="97dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</android.support.design.widget.CoordinatorLayout>

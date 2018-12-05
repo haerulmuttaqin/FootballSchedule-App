@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorCardBackground"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/layout_margin_16dp"
+        android:paddingRight="@dimen/layout_margin_16dp"
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/team_badge"
+            android:layout_width="40dp"
+            android:layout_height="60dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_badge"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/badge_home"/>
+
+        <TextView
+            android:id="@+id/team_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/team_badge"
+            android:gravity="center_horizontal"
+            android:text="@string/team_a"
+            android:textColor="@color/colorTextLight"
+            android:textSize="16sp"
+            android:layout_marginLeft="@dimen/card_margin_y"
+            android:layout_marginStart="@dimen/card_margin_y"
+            android:layout_toRightOf="@+id/team_badge"
+            android:layout_toEndOf="@+id/team_badge"
+            android:layout_centerVertical="true" />
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorBackground"
+        android:paddingLeft="@dimen/layout_margin_16dp"
+        android:paddingRight="@dimen/layout_margin_16dp"/>
+
+</LinearLayout>

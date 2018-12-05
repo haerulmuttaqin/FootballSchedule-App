@@ -1,0 +1,10 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/colorPrimary"/>
+
+    <item>
+        <bitmap android:src="@drawable/ic_logo_for_splashscreen"
+            android:gravity="center"/>
+    </item>
+
+</layer-list>
