@@ -1,6 +1,6 @@
 # Dicoding Football App
 
-:soccer: Dicoding Football App
+:soccer: **Dicoding Football App**
 
 Kotlin Android Developer Expert (KADE) 
 https://www.dicoding.com/academies/55
